@@ -6,8 +6,8 @@ demo sketches for the Quadrant musical interface
 For the most part, `cd` into an example directory and run the bash script:
 
 ```
-cd duckTheremin/
+cd examples/duckTheremin/
 bash run.sh
 ```
 
-Requires Python2 and PureData.
+Requires Python3 and PureData.
