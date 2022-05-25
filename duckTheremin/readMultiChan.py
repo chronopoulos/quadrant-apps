@@ -1,4 +1,4 @@
-#!/usr/bin/python2 -u
+#!/usr/bin/python3 -u
 
 import serial
 import struct
@@ -12,8 +12,8 @@ else:
 quadrant = serial.Serial(deviceFile, 115200)
 while True:
     result = quadrant.read(5);
-    if result[4] == chr(10):
+    if result[4] == 10:
         data = struct.unpack('BBBB', result[:4])
-        print '%d %d %d %d;' % data
+        print('%d %d %d %d;' % data)
     else:
-        print 'wtf!'
+        print('wtf!')

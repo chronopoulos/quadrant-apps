@@ -1,4 +1,4 @@
-#!/usr/bin/python2 -u
+#!/usr/bin/python3 -u
 
 import serial
 import struct
@@ -19,9 +19,9 @@ while True:
     quadrant0.reset_input_buffer()
     result1 = quadrant1.read(5);
     quadrant1.reset_input_buffer()
-    if (result0[4] == chr(10)) and (result1[4] == chr(10)):
+    if (result0[4] == 10) and (result1[4] == chr(10)):
         data = struct.unpack('BBBBBBBB', result0[:4] + result1[:4])
-        print '%d %d %d %d %d %d %d %d;' % data
+        print('%d %d %d %d %d %d %d %d;' % data)
     else:
-        print 'wtf!'
+        print('wtf!')
         continue
