@@ -1,29 +1,30 @@
 #N canvas 646 154 1048 850 10;
+#X declare -path ../../common;
 #X obj 222 21 netreceive 8000;
 #X msg 20 49 \; pd dsp 1;
 #X obj 20 15 loadbang;
 #X obj 222 135 unpack f f f f;
-#X floatatom 304 174 5 0 0 0 - - -, f 5;
-#X floatatom 345 174 5 0 0 0 - - -, f 5;
-#X floatatom 157 173 5 0 0 0 - - -, f 5;
-#X floatatom 263 174 5 0 0 0 - - -, f 5;
+#X floatatom 304 174 5 0 0 0 - - -;
+#X floatatom 345 174 5 0 0 0 - - -;
+#X floatatom 157 173 5 0 0 0 - - -;
+#X floatatom 263 174 5 0 0 0 - - -;
 #X obj 114 265 -;
-#X floatatom 485 281 5 0 0 0 - - -, f 5;
+#X floatatom 485 281 5 0 0 0 - - -;
 #X obj 488 300 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
 #X obj 289 266 -;
-#X floatatom 289 289 5 0 0 0 - - -, f 5;
+#X floatatom 289 289 5 0 0 0 - - -;
 #X text 73 265 pitch;
 #X text 255 267 roll;
 #X text 438 263 total;
 #X obj 292 327 hsl 128 15 -100 100 0 0 empty empty empty -2 -8 0 10
 -262144 -1 -1 6350 1;
-#X floatatom 114 318 5 0 0 0 - - -, f 5;
+#X floatatom 114 318 5 0 0 0 - - -;
 #X obj 117 354 hsl 128 15 -80 80 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 6350 1;
 #X obj 485 442 vline~;
 #X obj 485 368 mtof;
-#X floatatom 485 389 5 0 0 0 - - -, f 5;
+#X floatatom 485 389 5 0 0 0 - - -;
 #X obj 289 424 vline~;
 #X msg 289 402 \$1 50;
 #X msg 485 420 \$1 30;
@@ -31,7 +32,7 @@
 #X obj 486 652 vcf~ 10;
 #X obj 486 584 phasor~;
 #X obj 487 618 expr~ $v1*2 - 1;
-#X floatatom 114 532 5 0 0 0 - - -, f 5;
+#X floatatom 114 532 5 0 0 0 - - -;
 #X obj 630 808 dac~;
 #X obj 540 705 *~ 5;
 #X obj 623 511 > 0.05;
@@ -44,13 +45,14 @@
 #X obj 289 366 / 2;
 #X obj 114 488 expr $f1*20 + 1000;
 #X obj 661 713 elektronDelay~;
-#X floatatom 700 682 5 0 0 0 - - -, f 5;
+#X floatatom 700 682 5 0 0 0 - - -;
 #X obj 663 754 *~;
-#X floatatom 689 731 5 0 0 0 - - -, f 5;
+#X floatatom 689 731 5 0 0 0 - - -;
 #X obj 701 633 abs;
 #X obj 704 656 * 4;
 #X obj 485 345 expr $f1*48 + 30;
 #X obj 548 464 / 50;
+#X obj 19 94 declare -path ../../common;
 #X connect 0 0 3 0;
 #X connect 2 0 1 0;
 #X connect 3 0 6 0;

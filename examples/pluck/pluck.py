@@ -14,9 +14,9 @@ quadrant = serial.Serial(deviceFile, 115200)
 engaged = [False, False, False, False]
 
 while True:
-    result = quadrant.read(5);
-    if result[4] == 10:
-        data = struct.unpack('BBBB', result[:4])
+    data_raw = quadrant.readline();
+    data = tuple(map(int, data_raw.split()))
+    if len(data) == 4:
         for i in range(4):
             if (not engaged[i]) and (data[i] < 180):
                 engaged[i] = True
@@ -24,4 +24,4 @@ while True:
             if engaged[i] and (data[i] >= 180):
                 engaged[i] = False
     else:
-        print('wtf!')
+        print('bad readout: ', data_raw)

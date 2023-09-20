@@ -2,4 +2,4 @@
 
 pasuspender -- pd main.pd &
 sleep 2
-./pluck.py | pdsend 8000
+python3 -u ./pluck.py | pdsend 8000

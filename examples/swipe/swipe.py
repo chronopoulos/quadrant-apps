@@ -35,9 +35,9 @@ else:
 currentProgram = 1
 
 while True:
-    result = quadrant.read(5);
-    if result[4] == 10:
-        data = struct.unpack('BBBB', result[:4])
+    data_raw = quadrant.readline();
+    data = tuple(map(int, data_raw.split()))
+    if len(data) == 4:
         for i in range(4):
             if (not engaged[i]) and (data[i] < 180):
                 engaged[i] = True

@@ -2,4 +2,4 @@
 
 pasuspender -- pd main.pd &
 sleep 2
-./readMultiChan.py | pdsend 8000
+python3 ./serial2stdout_twoBoards.py | pdsend 8000

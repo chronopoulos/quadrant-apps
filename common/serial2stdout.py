@@ -11,9 +11,9 @@ else:
 
 quadrant = serial.Serial(deviceFile, 115200)
 while True:
-    result = quadrant.read(5);
-    if result[4] == 10:
-        data = struct.unpack('BBBB', result[:4])
+    data_raw = quadrant.readline();
+    data = tuple(map(int, data_raw.split()))
+    if len(data) == 4:
         print('%d %d %d %d;' % data)
     else:
         print('wtf!')

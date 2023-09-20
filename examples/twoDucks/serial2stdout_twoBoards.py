@@ -15,12 +15,17 @@ quadrant0 = serial.Serial(deviceFile0, 115200)
 quadrant1 = serial.Serial(deviceFile1, 115200)
 
 while True:
-    result0 = quadrant0.read(5);
+
+    data0_raw = quadrant0.readline();
+    data0 = tuple(map(int, data0_raw.split()))
     quadrant0.reset_input_buffer()
-    result1 = quadrant1.read(5);
+
+    data1_raw = quadrant1.readline();
+    data1 = tuple(map(int, data1_raw.split()))
     quadrant1.reset_input_buffer()
-    if (result0[4] == 10) and (result1[4] == 10):
-        data = struct.unpack('BBBBBBBB', result0[:4] + result1[:4])
+
+    if (len(data0) == 4) and (len(data1) == 4):
+        data = struct.unpack('BBBBBBBB', data0[:4] + data1[:4])
         print('%d %d %d %d %d %d %d %d;' % data)
     else:
         print('wtf!')
