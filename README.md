@@ -6,7 +6,7 @@ demo sketches for the Quadrant musical interface
 For the most part, `cd` into an example directory and run the bash script:
 
 ```
-cd examples/duckTheremin/
+cd apps/duckTheremin/
 bash run.sh
 ```
 
